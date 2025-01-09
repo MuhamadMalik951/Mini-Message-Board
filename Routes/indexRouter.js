@@ -1,20 +1,21 @@
 import express from 'express';
+import { title } from 'process';
 const { Router } = express;
 
-const messages = [
+export const messages = [
   {
     text: 'Hi there!',
     user: 'Amando',
-    added: new Date(),
+    added: new Date().toLocaleDateString(),
   },
   {
     text: 'Hello World!',
     user: 'Charles',
-    added: new Date(),
+    added: new Date().toLocaleDateString(),
   },
 ];
 
 export const indexRouter = Router();
 indexRouter.get('/', (req, res) => {
-  res.send('this is the page that is being with index Router.');
+  res.render('index', { messages: messages, title: 'Mini Message Board' });
 });

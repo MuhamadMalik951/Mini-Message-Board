@@ -1,0 +1,7 @@
+<% messages.forEach((message) => { %>
+  <div class="message-card">
+    <div class="user"><%= message.user %></div>
+    <div class="text"><%= message.text %></div>
+    <div class="timestamp"><%= message.added %></div>
+  </div>
+  <% })%>

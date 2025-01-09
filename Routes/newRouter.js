@@ -1,7 +1,18 @@
-import express from 'express';
-const { Router } = express;
+import express, { Router } from 'express';
+import { messages } from './indexRouter.js';
+const newRouter = express.Router();
 
-export const newRouter = Router();
 newRouter.get('/', (req, res) => {
-  res.send('this is the new messages page of the mini message board.');
+  res.render('form');
 });
+
+newRouter.post('/', (req, res) => {
+  messages.push({
+    user: req.body.name,
+    text: req.body.text,
+    added: req.body.date,
+  });
+  res.redirect('/');
+});
+
+export default newRouter;
