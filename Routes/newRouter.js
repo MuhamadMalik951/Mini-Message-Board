@@ -1,5 +1,5 @@
 import express, { Router } from 'express';
-import { messages } from './indexRouter.js';
+// import { messages } from './messageController.js'; 
 const newRouter = express.Router();
 
 newRouter.get('/', (req, res) => {
